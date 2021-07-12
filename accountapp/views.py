@@ -5,9 +5,12 @@ from django.shortcuts import render
 
 
 def hello_world(request) :
+
+    temp = request.POST.get('input_text')
+
     if request.method == "POST":
         return render(request,'accountapp/hello_world.html',
-                      context={'text':'POST METHOD!'})
+                      context={'text': temp})
     else:
         return render(request, 'accountapp/hello_world.html',
                       context={'text':'GET METHOD!'})

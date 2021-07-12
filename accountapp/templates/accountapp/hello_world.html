@@ -6,7 +6,8 @@
         <h1>METHOD</h1>
         <form action="/accounts/hello_world/" method="post">
             {% csrf_token %}
-            <input type="submit" class="btn btn-secondary rounded_pill px-4">
+            <input type="text" name="input_text">
+            <input type="submit" class="btn btn-secondary rounded-pill px-4">
         </form>
 
         <h3>{{ text }}</h3>
