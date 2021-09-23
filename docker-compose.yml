@@ -13,12 +13,24 @@ services:
       - gis_myself_media:/data/media/
 
   django:
-    image: gis-myself:3
+    image: gis-myself:4
     networks:
       - gis_myself_network
     volumes:
       - gis_myself_static:/home/WebApplication_Myself/staticfiles/
       - gis_myself_media:/home/WebApplication_Myself/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - gis_myself_network
+    volumes:
+      - gis_myself_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1
 
 networks:
   gis_myself_network:
@@ -26,3 +38,4 @@ networks:
 volumes:
   gis_myself_static:
   gis_myself_media:
+  gis_myself_mariadb:
