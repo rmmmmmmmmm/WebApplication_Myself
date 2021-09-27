@@ -19,6 +19,8 @@ services:
     volumes:
       - gis_myself_static:/home/WebApplication_Myself/staticfiles/
       - gis_myself_media:/home/WebApplication_Myself/media/
+    secrets:
+      - DJANGO_SECRET_KEY
 
   mariadb:
     image: mariadb:10.5
@@ -39,3 +41,7 @@ volumes:
   gis_myself_static:
   gis_myself_media:
   gis_myself_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
