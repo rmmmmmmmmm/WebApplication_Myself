@@ -11,6 +11,7 @@ services:
       - /home/rmmmm.9/nginx.conf:/etc/nginx/nginx.conf
       - gis_myself_static:/data/static/
       - gis_myself_media:/data/media/
+      - gis_log:/var/log/nginx/
 
   django:
     image: gis-myself:5
@@ -47,6 +48,7 @@ volumes:
   gis_myself_static:
   gis_myself_media:
   gis_myself_mariadb:
+  gis_log:
 
 secrets:
   DJANGO_SECRET_KEY:
